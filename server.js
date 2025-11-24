@@ -7,11 +7,6 @@ const PORT = 3000
 //settare la cartella come asset statico
 app.use(express.static('public'));
 
-//mettere il server in ascolto
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-})
-
 //definire la route della home
 //npm run dev => testare su postman
 app.get('/', (req, res) => {
@@ -55,4 +50,10 @@ const posts = [
 //definire la route della bacheca
 app.get('/bacheca', (req, res) => {
     res.json(posts)
+})
+
+
+//mettere il server in ascolto
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 })
