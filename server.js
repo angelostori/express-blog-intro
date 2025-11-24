@@ -15,3 +15,13 @@ le immagini associate ad ogni post.
 
 Testare su postman
 */
+
+const express = require('express')
+
+const app = express()
+
+const PORT = 3000
+
+//settare la cartella come asset statico
+app.use(express.static('public'));
+
