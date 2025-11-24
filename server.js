@@ -1,15 +1,3 @@
-/*
-Creiamo un array dove inserire una lista di almeno 5 post, per ognuno indicare titolo, 
-contenuto, immagine e tags (tags è un array di stringhe)
-
-Creiamo poi una rotta /bacheca che restituisca un oggetto json con la lista dei post.
-
-Configuriamo gli asset statici sull’applicazione in modo che si possano visualizzare 
-le immagini associate ad ogni post.
-
-Testare su postman
-*/
-
 const express = require('express')
 
 const app = express()
@@ -28,4 +16,43 @@ app.listen(PORT, () => {
 //npm run dev => testare su postman
 app.get('/', (req, res) => {
     res.send('Server del mio blog')
+})
+
+
+const posts = [
+    {
+        titolo: "Ciambellone",
+        contenuto: "Un dolce soffice e tradizionale, perfetto per la colazione o la merenda.",
+        immagine: "/images/ciambellone.jpeg",
+        tags: ["dolci", "colazione", "tradizione"]
+    },
+    {
+        titolo: "Cracker alla barbabietola",
+        contenuto: "Snack croccante e salutare, dal colore vivace grazie alla barbabietola.",
+        immagine: "/images/cracker_barbabietola.jpeg",
+        tags: ["snack", "barbabietola", "salutare"]
+    },
+    {
+        titolo: "Pane fritto dolce",
+        contenuto: "Ricetta golosa e semplice, pane fritto arricchito con zucchero e cannella.",
+        immagine: "/images/pane_fritto_dolce.jpeg",
+        tags: ["dolci", "fritto", "tradizione"]
+    },
+    {
+        titolo: "Pasta con la barbabietola",
+        contenuto: "Un primo piatto colorato e originale, con crema di barbabietola.",
+        immagine: "/images/pasta_barbabietola.jpeg",
+        tags: ["pasta", "barbabietola", "primi"]
+    },
+    {
+        titolo: "Torta paesana",
+        contenuto: "Dolce rustico della tradizione lombarda, preparato con pane raffermo e cacao.",
+        immagine: "/images/torta_paesana.jpeg",
+        tags: ["dolci", "tradizione", "pane"]
+    }
+]
+
+//definire la route della bacheca
+app.get('/bacheca', (req, res) => {
+    res.json(posts)
 })
